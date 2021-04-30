@@ -1,0 +1,355 @@
+@font-face{
+    font-family:"montain";
+    src: url("../font/beyond_the_mountains.ttf");
+}
+@font-face{
+    font-family:"segoe";
+    src: url("../font/Segoe UI Bold.ttf");
+}
+@font-face{
+    font-family:"gill";
+    src: url("../font/Gill\ Sans\ MT\ Medium.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: auto;
+    background: linear-gradient(0deg, #989292 ,#f8f8f8 72%);
+    
+}
+hr{
+    border: 0.5px solid rgb(75, 75, 75);
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-content: center;
+}
+li{
+    list-style: none;
+    margin: 0 20px;
+}
+a{
+    text-decoration: none;
+    color: #049A8F;
+    font-size: 18px;
+}
+h1{
+    font-family: "montain";
+    color: #049A8F;
+    font-size: 3em;
+}
+h2{
+    font-family: "segoe";
+}
+.portada{
+    position: relative;
+    margin: 0 auto;
+    max-width: 1600px;
+    z-index: 2;
+    
+    
+}
+.logo p{
+    font-family:"montain" ;
+    color: #037971;
+    font-size: 2rem;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    font-family: "segoe";
+    color: #049A8F;
+
+}
+  
+.descripcion{
+    font-size: 1.5rem;
+    font-family: "gill";
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    transform: translate(-13%,-45%);
+    color: #023436;
+    display: flex;
+    flex-direction: column;
+    
+
+    
+    
+}
+.descripcion p{
+    font-size: 1.1em;
+    margin: 30px 30px;
+}
+.descripcion button{
+    max-width: 200px;
+    font-family: "gill";
+    font-size: 20px;
+    padding: 15px 10px;
+    border: 0px;
+    border-radius: 50px ;
+    align-content: center;
+    justify-content: center;
+    background: #049A8F;
+    color: #f0f0f0;
+    justify-content: center;
+    transform: translateX(100%);
+    
+    
+
+}
+.model{
+    height: 850px;
+    
+    
+}
+.circulo1{
+    width: 1880px;
+    height: 1550px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    background: linear-gradient(0deg, rgb(121, 114, 114), rgba(248,248,248) 72%);
+    top: -65%;
+    transform: translateX(-60%);
+    z-index: 0;
+    overflow: hidden;
+    float: left;
+    
+}
+.circulo2{
+    width: 50px;
+    height: 50px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    background: linear-gradient(0deg, rgba(152,146,146), rgba(248,248,248) 72%);
+    top: -50%;
+    transform: translateX(-505%);
+    z-index: 0;
+    float: left;
+    }
+.principal{
+    overflow: hidden;
+}
+/*************************/
+.reconocimiento{
+    padding: 100px 15px;
+    background-color: #ffffff;
+    max-width: 1600px;
+    margin: auto;
+}
+
+
+
+.text-uppercase{
+    text-transform: uppercase!important;
+}
+
+.reconocimiento .section-title .description-model h2{
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 10px;
+    color: #000000;
+}
+
+.reconocimiento .section-title .description-model h2 span{
+    color: #049A8F;
+}
+.reconocimiento .section-title .description-model p{
+    font-family: "gill";
+    font-size: 25px;
+}
+
+
+.reconocimiento .section-title .process{
+    width: 1000px;
+    
+}
+
+.reconocimiento .section-title .process .input{
+    padding-left: 100px;
+    display: inline-block;
+}
+
+.reconocimiento .section-title .process .output{
+    padding-left: 250px;
+    display: inline-block;
+}
+
+.reconocimiento .section-title .input p.small{
+    /*background-color: blue;*/
+    display: inline-block;
+    font-size: 14px;
+    color: #838383;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.reconocimiento .section-title .output p.small{
+    /*background-color: blue;*/
+    display: inline-block;
+    font-size: 14px;
+    color: #838383;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+
+.reconocimiento .section-title .process .output .cv-btn{
+    border-radius: 4px;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 12px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all .5s ease;
+    background-color: #049A8F;
+
+}
+
+.reconocimiento .section-title .process .output .cv-btn:hover{
+    background-color: #ffffff;
+    color: #049A8F;
+    cursor: pointer;
+}
+
+
+input#file-input{
+    display: none;
+}
+
+input#file-input + label{
+    border-radius: 4px;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 12px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all .5s ease;
+    background-color: #049A8F;
+}
+
+input#file-input + label:hover{
+    background-color: #ffffff;
+    color: #049A8F;
+    cursor: pointer;
+}
+
+input#predict{
+    display: none;
+}
+
+input#predict + label{
+    border-radius: 4px;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 12px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all .5s ease;
+    background-color: #C60505;
+}
+
+input#predict + label:hover{
+    background-color: #ffffff;
+    color: #C60505;
+    cursor: pointer;
+}
+
+
+.reconocimiento .reconocimiento-content .row{
+    float:left; 
+    width:100%;
+}
+
+.reconocimiento .reconocimiento-content .row .input-model{
+    padding-left: 50px;
+    float:left;
+    
+    
+} 
+.reconocimiento .reconocimiento-content .input-model .div-file-input{
+    height: 380px;
+    width: 520px;
+}
+
+
+.reconocimiento .reconocimiento-content .input-model .div-file-input img{
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+
+.reconocimiento .reconocimiento-content .input-model .formats{
+    padding-left: 130px;
+    color: #838383;
+}
+
+.reconocimiento .reconocimiento-content .input-model .inputName strong{
+    margin: 2px 50px;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.reconocimiento .reconocimiento-content .input-model .inputName p{
+    display: inline-block;
+    color: #838383;
+}
+
+.reconocimiento .reconocimiento-content .row .output-model{
+    padding-left: 50px;
+    float:left;
+}
+
+.reconocimiento .reconocimiento-content .output-model .div-file-output{
+    height: 380px;
+    width: 520px;
+}
+
+
+.reconocimiento .reconocimiento-content .output-model .div-file-output img{
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+
+.reconocimiento .reconocimiento-content .output-model .outputName{
+    margin-left: 80px;
+}
+
+.reconocimiento .reconocimiento-content .output-model .outputName strong{
+    margin: 2px 50px;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.reconocimiento .reconocimiento-content .output-model .outputName p{
+    display: inline-block;
+    color: #838383;
+}

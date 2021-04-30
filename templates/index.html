@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danza's recognition</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/principal.css')}}">
+</head>
+<body>
+    
+    <section class="principal">
+        <nav>
+            <div class="logo">
+                <p>Danza's recognition</p>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">Deteccion</a></li>
+                <li><a href="">Nosotros</a></li>
+            </ul>
+        </div>
+    </nav>
+        <section class="portada">
+                    
+        <img src="{{url_for('static', filename='images/hero/bailarin1.png')}}" alt="" class="model">
+        <div class="descripcion">
+            <h1 class="titulo">Danza's Recognition</h1>
+            <!-- <p class="">Aplicacion de reconocimiento de danzas</p> -->
+            <button>Detectar</button>
+        </div>
+        
+    </section>
+    <!-- <div class="circulo1"></div>  -->
+</section>
+<section class="danzas-r">
+    <h2>Danzas   Aplicadas</h2>
+    <div class="danzas-reconocidas">
+        <div class="danza danza1">
+            <figure>
+                <img src="{{url_for('static', filename='images/hero/danza1.png')}}" alt="">
+            </figure>
+            <div class="contenido">
+                <h3>Unkakos</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti </p>
+            </div>
+        </div>
+            <div class="danza danza2">
+                <figure>
+                    <img src="{{url_for('static', filename='images/hero/danza2.png')}}" alt="">
+                </figure>
+                <div class="contenido">
+                    <h3>K'ajelos</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti </p>
+                </div> 
+            </div>
+            <div class="danza danza3">
+                <figure>
+                    <img src="{{url_for('static', filename='images/hero/danza3.png')}}" alt="">
+                </figure>
+                <div class="contenido">
+                    <h3>Sikuris</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis </p>
+                </div> 
+            </div> 
+            <div class="danza danza4">
+                <figure>
+                    <img src="{{url_for('static', filename='images/hero/danza4.png')}}" alt="">
+                </figure>
+                <div class="contenido">
+                    <h3>Carnaval de Macari</h3>
+                    <p>Lorem ipsum d</p>
+                </div> 
+            </div> 
+        </div>
+    </div>
+    
+</section>
+<!-- ************************************************************** -->
+
+<section class="reconocimiento" id="reconocimiento">
+    <div class="container">
+        <div class="row1">
+            <div class="section-title">
+                <h2 class="">Prediccion de danza</h2>
+                <div class="description-model">
+                    <p>
+                        Ingresa El modelo para poder predecir
+                    </p>
+                </div>
+                <div class="process">
+                    <div class="input">
+                        <form method="POST" enctype="multipart/form-data">
+                            <p class="small text-uppercase">  
+                                sube una Imágen
+                            </p>
+                            <!--esta parte selecciona y sube el archivo  -->
+                            <input type="file" name="ourfile" id="file-input" onchange="form.submit()">  
+                            <label for="file-input" class="cv-btn" >Subir</label>    
+                        </form>
+                    </div>
+                    <div class="output">
+                        <form method="POST">
+                            <p class="small text-uppercase">  
+                                   
+                            </p>
+                            <input type="submit" name="predictRequest" id="predict">
+                            <label for="predict" class="cv-btn">Predecir</label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="reconocimiento-content">
+                <div class="row">
+                    <div class="input-model">
+                        {% if context %}
+
+                            {% if context["boolImage"] == True %}
+                            <div class="div-file-input">
+                                <img src="{{ url_for('static', filename= 'inference/input/' ~ context["mediaFileName"]) }}" alt=""/>
+                            </div>
+                            {% endif %}
+                            
+                                
+                            {% if context["boolVideo"] == True %}
+                            <div class="div-file-input">
+                                <video width="520" height="380" controls autoplay id="myVideoI">
+                                    <source src="{{ url_for('static', filename= 'inference/input/' ~ context["mediaFileName"]) }}" type="video/mp4">
+                                </video>
+                            </div>
+                            {% endif %}
+                            
+                            <span>
+                            {% if context["mediaFileName"] %}
+                                <div class="inputName">
+                                    <strong>Chosen file:</strong>
+                                    <p id = "file-name">{{context["mediaFileName"]}}</p>
+                                </div>
+                            {% else %}
+                                <p class="formats">Valid formats: "jpg", "png", "jpeg" </p>
+                            {% endif %}
+                            </span>
+                        {% endif %}
+                    </div>
+                    <div class="output-model">
+                        {% if context["finished"] == True  %}
+
+                            {% if context["boolImage"] == True %}
+                            <div class="div-file-output">
+                                <img src="{{ url_for('static', filename= 'inference/output/' ~ context["mediaFileName"]) }}" alt=""/>
+                            </div>
+                            {% endif %}
+                              
+                            {% if context["boolVideo"] == True %}
+                            <div class="div-file-output">
+                                <video width="520" height="380" controls autoplay id="myVideoO">
+                                    <source src="{{ url_for('static', filename= 'inference/output/' ~ context["mediaFileName"]) }}" type="video/mp4">
+                                </video>
+                            </div>
+                            {% endif %}
+                            
+                            <span>
+                            {% if context["time"] %}
+                                <div class="outputName">
+                                    <strong>Time inference:</strong>
+                                    <p>{{context["time"]}} segundos</p>
+                                </div>
+                            {% endif %}
+                            </span>
+                        {% else %}
+                        <div class="outputName">
+                            <!-- <p style="padding-left: 200px;">Wait Please</p> -->
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+         -->
+    </div>
+</section>
+</body>
+</html>
